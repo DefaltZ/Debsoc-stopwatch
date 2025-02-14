@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config.college_name }}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body style="background-image: url('{{ config.background.url }}')">
+    <div class="container-timer">
+        <div class="timer-display">
+            00 : 00 : 00 : 000
+        </div>
+        <div class="buttons">
+            <button id="start-timer">Start</button>
+            <button id="pause-timer">Pause</button>
+            <button id="reset-timer">Reset</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-images">
+            <img src="{{ config.logo.url }}" alt="College Logo">
+            <div class="footer-text-container">
+                <span class="footer-text-large">{{ config.college_name }}</span>
+                <span class="footer-text-small">{{ config.motto }}</span>
+                <span class="footer-text-small">{{ config.additional_text }}</span>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        </div>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
